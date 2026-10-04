@@ -3,6 +3,8 @@ package com.booze.authDemo.repo;
 import com.booze.authDemo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepo extends JpaRepository<User, Long> {
+import java.util.UUID;
+
+public interface UserRepo extends JpaRepository<User, UUID> {
     User findByEmail(String email);
 }

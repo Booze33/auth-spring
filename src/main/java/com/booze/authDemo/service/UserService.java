@@ -32,10 +32,6 @@ public class UserService {
     public User login(User userInput) {
         Authentication auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(userInput.getEmail(), userInput.getPassword()));
 
-        if(!auth.isAuthenticated()) {
-            throw new BadCredentialsException("Invalid credentials");
-        }
-
         User user = userRepo.findByEmail(userInput.getEmail());
 
         if(user == null) {
